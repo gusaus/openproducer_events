@@ -3,7 +3,7 @@ description = The magic that allows for demo content for events.
 core = 7.x
 package = OpenProducer Demo Content
 php = 5.2.4
-version = 7.x-1.0-alpha3
+version = 7.x-1.0-beta1
 project = openproducer_events_democontent
 dependencies[] = ctools
 dependencies[] = defaultcontent
@@ -16,27 +16,3 @@ features[content][] = openproducer-events-defaultcontent-4
 features[ctools][] = strongarm:strongarm:1
 features[features_api][] = api:1
 features[variable][] = node_content_enabled
-
-
-; Information added by drush on 2013-08-12
-version = "7.x-1.x-dev"
-core = "7.x"
-project = "openproducer_events"
-datestamp = "1376349392"
-
-
-
-; Information added by drush on 2013-11-12
-version = "7.x-1.x-dev"
-core = "7.x"
-project = "openproducer_events"
-datestamp = "1384243646"
-
-
-
-; Information added by drush on 2014-01-14
-version = "7.x-1.x-dev"
-core = "7.x"
-project = "openproducer_events"
-datestamp = "1389690492"
-
