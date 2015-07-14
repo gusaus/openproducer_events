@@ -465,6 +465,8 @@ function openproducer_events_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
   $handler->display->display_options['style_options']['columns'] = array(
     'field_event_date' => 'field_event_date',
     'field_event_city' => 'field_event_city',
@@ -484,7 +486,6 @@ function openproducer_events_views_default_views() {
       'align' => 'views-align-left',
       'separator' => ', ',
       'empty_column' => 0,
-      'responsive' => '',
     ),
     'field_event_city' => array(
       'sortable' => 0,
@@ -492,7 +493,6 @@ function openproducer_events_views_default_views() {
       'align' => 'views-align-left',
       'separator' => ', ',
       'empty_column' => 0,
-      'responsive' => '',
     ),
     'field_event_venue' => array(
       'sortable' => 0,
@@ -500,7 +500,6 @@ function openproducer_events_views_default_views() {
       'align' => 'views-align-left',
       'separator' => '',
       'empty_column' => 0,
-      'responsive' => 'priority-medium',
     ),
     'field_venue_address' => array(
       'sortable' => 0,
@@ -508,7 +507,6 @@ function openproducer_events_views_default_views() {
       'align' => '',
       'separator' => ', ',
       'empty_column' => 0,
-      'responsive' => '',
     ),
     'field_event_state' => array(
       'sortable' => 0,
@@ -516,7 +514,6 @@ function openproducer_events_views_default_views() {
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
-      'responsive' => '',
     ),
     'field_event_zip_post_code' => array(
       'sortable' => 0,
@@ -524,7 +521,6 @@ function openproducer_events_views_default_views() {
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
-      'responsive' => '',
     ),
     'title' => array(
       'sortable' => 0,
@@ -532,7 +528,6 @@ function openproducer_events_views_default_views() {
       'align' => 'views-align-left',
       'separator' => '<br>',
       'empty_column' => 0,
-      'responsive' => '',
     ),
     'field_event_date_1' => array(
       'sortable' => 0,
@@ -540,15 +535,14 @@ function openproducer_events_views_default_views() {
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
-      'responsive' => '',
     ),
     'field_links' => array(
       'align' => 'views-align-left',
       'separator' => '',
       'empty_column' => 0,
-      'responsive' => '',
     ),
   );
+  $handler->display->display_options['style_options']['override'] = FALSE;
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
