@@ -10,87 +10,6 @@
 function openproducer_events_field_default_field_instances() {
   $field_instances = array();
 
-  // Exported field_instance: 'node-event-body'
-  $field_instances['node-event-body'] = array(
-    'bundle' => 'event',
-    'default_value' => NULL,
-    'deleted' => 0,
-    'description' => '',
-    'display' => array(
-      'default' => array(
-        'label' => 'hidden',
-        'module' => 'text',
-        'settings' => array(),
-        'type' => 'text_default',
-        'weight' => 1,
-      ),
-      'featured' => array(
-        'label' => 'above',
-        'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 0,
-      ),
-      'teaser' => array(
-        'label' => 'hidden',
-        'module' => 'text',
-        'settings' => array(
-          'trim_length' => 600,
-        ),
-        'type' => 'text_summary_or_trimmed',
-        'weight' => 0,
-      ),
-    ),
-    'entity_type' => 'node',
-    'field_name' => 'body',
-    'label' => 'Details',
-    'required' => 0,
-    'settings' => array(
-      'better_formats' => array(
-        'allowed_formats' => array(
-          'filtered_html' => 0,
-          'full_html' => 0,
-          'panopoly_html_text' => 'panopoly_html_text',
-          'panopoly_wysiwyg_text' => 'panopoly_wysiwyg_text',
-          'plain_text' => 'plain_text',
-        ),
-        'allowed_formats_toggle' => 1,
-        'default_order_toggle' => 0,
-        'default_order_wrapper' => array(
-          'formats' => array(
-            'filtered_html' => array(
-              'weight' => 0,
-            ),
-            'full_html' => array(
-              'weight' => 1,
-            ),
-            'panopoly_html_text' => array(
-              'weight' => -9,
-            ),
-            'panopoly_wysiwyg_text' => array(
-              'weight' => -10,
-            ),
-            'plain_text' => array(
-              'weight' => 10,
-            ),
-          ),
-        ),
-      ),
-      'display_summary' => 0,
-      'text_processing' => 1,
-      'user_register_form' => FALSE,
-    ),
-    'widget' => array(
-      'active' => 1,
-      'module' => 'text',
-      'settings' => array(
-        'rows' => 5,
-        'summary_rows' => 5,
-      ),
-      'type' => 'text_textarea_with_summary',
-      'weight' => 3,
-    ),
-  );
-
   // Exported field_instance: 'node-event-field_event_address'
   $field_instances['node-event-field_event_address'] = array(
     'bundle' => 'event',
@@ -206,6 +125,7 @@ function openproducer_events_field_default_field_instances() {
           'multiple_from' => '',
           'multiple_number' => '',
           'multiple_to' => '',
+          'show_remaining_days' => FALSE,
         ),
         'type' => 'date_default',
         'weight' => 11,
@@ -498,9 +418,10 @@ function openproducer_events_field_default_field_instances() {
     'display' => array(
       'default' => array(
         'label' => 'above',
+        'module' => 'list',
         'settings' => array(),
-        'type' => 'hidden',
-        'weight' => 10,
+        'type' => 'list_default',
+        'weight' => 12,
       ),
       'featured' => array(
         'label' => 'above',
@@ -529,7 +450,7 @@ function openproducer_events_field_default_field_instances() {
         'display_label' => 1,
       ),
       'type' => 'options_onoff',
-      'weight' => 11,
+      'weight' => 5,
     ),
   );
 
@@ -595,7 +516,7 @@ function openproducer_events_field_default_field_instances() {
       'module' => 'link',
       'settings' => array(),
       'type' => 'link_field',
-      'weight' => 4,
+      'weight' => 3,
     ),
   );
 
@@ -654,7 +575,6 @@ function openproducer_events_field_default_field_instances() {
   t('Address');
   t('City');
   t('Date');
-  t('Details');
   t('Feature content');
   t('Links');
   t('Map Address');
