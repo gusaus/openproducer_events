@@ -21,7 +21,7 @@ function openproducer_events_field_group_info() {
   $field_group->parent_name = '';
   $field_group->data = array(
     'label' => 'Location',
-    'weight' => '5',
+    'weight' => '4',
     'children' => array(
       0 => 'field_event_address',
       1 => 'field_event_city',

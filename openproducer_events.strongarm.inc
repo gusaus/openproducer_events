@@ -44,7 +44,7 @@ function openproducer_events_strongarm() {
           'weight' => '0',
         ),
         'path' => array(
-          'weight' => '10',
+          'weight' => '6',
         ),
       ),
       'display' => array(),

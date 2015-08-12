@@ -109,35 +109,29 @@ function openproducer_events_default_page_manager_pages() {
   $display->content['new-da654ba0-772b-43bb-a2c2-d15326d17ec1'] = $pane;
   $display->panels['contentmain'][0] = 'new-da654ba0-772b-43bb-a2c2-d15326d17ec1';
   $pane = new stdClass();
-  $pane->pid = 'new-4fe863e3-a113-4926-ad54-89ad50167e98';
+  $pane->pid = 'new-c1f2e1fb-6cc4-4527-b72f-37083160c262';
   $pane->panel = 'sidebar';
   $pane->type = 'views_panes';
   $pane->subtype = 'events-panel_pane_2';
   $pane->shown = TRUE;
   $pane->access = array();
   $pane->configuration = array(
-    'items_per_page' => '3',
+    'items_per_page' => '5',
     'fields_override' => array(
-      'title' => 1,
+      'title' => 0,
       'field_event_date' => 1,
       'field_event_venue' => 1,
-      'field_event_city' => 1,
-      'field_event_state' => 1,
+      'field_event_city' => 0,
+      'field_event_state' => 0,
+      'nothing' => 1,
     ),
-    'view_mode' => 'teaser',
-    'widget_title' => NULL,
-    'exposed' => array(
-      'sort_by' => NULL,
-      'sort_order' => NULL,
-    ),
-    'use_pager' => NULL,
-    'pager_id' => NULL,
-    'offset' => NULL,
-    'link_to_view' => NULL,
-    'more_link' => NULL,
-    'path' => NULL,
+    'override_title' => '',
+    'override_title_text' => '',
+    'override_title_heading' => 'h2',
     'view_settings' => 'fields',
     'header_type' => 'none',
+    'view_mode' => 'teaser',
+    'widget_title' => 'Past shows',
   );
   $pane->cache = array();
   $pane->style = array(
@@ -156,16 +150,13 @@ function openproducer_events_default_page_manager_pages() {
     ),
     'style' => 'bootstrap_styles:well',
   );
-  $pane->css = array(
-    'css_id' => 'events',
-    'css_class' => '',
-  );
+  $pane->css = array();
   $pane->extras = array();
   $pane->position = 0;
   $pane->locks = array();
-  $pane->uuid = '4fe863e3-a113-4926-ad54-89ad50167e98';
-  $display->content['new-4fe863e3-a113-4926-ad54-89ad50167e98'] = $pane;
-  $display->panels['sidebar'][0] = 'new-4fe863e3-a113-4926-ad54-89ad50167e98';
+  $pane->uuid = 'c1f2e1fb-6cc4-4527-b72f-37083160c262';
+  $display->content['new-c1f2e1fb-6cc4-4527-b72f-37083160c262'] = $pane;
+  $display->panels['sidebar'][0] = 'new-c1f2e1fb-6cc4-4527-b72f-37083160c262';
   $pane = new stdClass();
   $pane->pid = 'new-f83d6cf2-af88-4456-a6fa-ed418a36c4b3';
   $pane->panel = 'sidebar';
