@@ -319,7 +319,7 @@ function openproducer_events_panelizer_defaults() {
   $display->content['new-045bb3bd-d1a2-4200-939c-26aeb212182e'] = $pane;
   $display->panels['contentheader'][3] = 'new-045bb3bd-d1a2-4200-939c-26aeb212182e';
   $pane = new stdClass();
-  $pane->pid = 'new-bd93170c-6796-43a1-a712-2d0d760adfd3';
+  $pane->pid = 'new-7d34edf9-db4e-4174-954a-b0c92a1d3558';
   $pane->panel = 'sidebar';
   $pane->type = 'views_panes';
   $pane->subtype = 'events-panel_pane_3';
@@ -343,22 +343,17 @@ function openproducer_events_panelizer_defaults() {
     'view_settings' => 'fields',
     'header_type' => 'none',
     'view_mode' => 'teaser',
-    'widget_title' => 'Upcoming shows',
+    'widget_title' => 'Upcoming Shows',
   );
   $pane->cache = array();
   $pane->style = array(
     'settings' => array(
-      'hide_classes' => array(
-        'hidden-xs' => 0,
-        'hidden-sm' => 0,
-        'hidden-md' => 0,
-        'hidden-lg' => 0,
-      ),
-      'additional_classes' => array(
-        'pull-left' => 0,
-        'pull-right' => 0,
-        'clearfix' => 0,
-      ),
+      'modifier_class' => '',
+      'hide_classes' => array(),
+      'additional_classes' => array(),
+      'collapsible' => FALSE,
+      'collapsed' => '',
+      'region_title' => '',
     ),
     'style' => 'bootstrap_styles:well',
   );
@@ -366,9 +361,9 @@ function openproducer_events_panelizer_defaults() {
   $pane->extras = array();
   $pane->position = 0;
   $pane->locks = array();
-  $pane->uuid = 'bd93170c-6796-43a1-a712-2d0d760adfd3';
-  $display->content['new-bd93170c-6796-43a1-a712-2d0d760adfd3'] = $pane;
-  $display->panels['sidebar'][0] = 'new-bd93170c-6796-43a1-a712-2d0d760adfd3';
+  $pane->uuid = '7d34edf9-db4e-4174-954a-b0c92a1d3558';
+  $display->content['new-7d34edf9-db4e-4174-954a-b0c92a1d3558'] = $pane;
+  $display->panels['sidebar'][0] = 'new-7d34edf9-db4e-4174-954a-b0c92a1d3558';
   $pane = new stdClass();
   $pane->pid = 'new-b4f868f1-d8c5-4aaf-9050-0a37c55b29e3';
   $pane->panel = 'sidebar';
