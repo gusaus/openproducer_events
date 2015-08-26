@@ -74,7 +74,7 @@ function openproducer_events_views_default_views() {
   $handler->display->display_options['fields']['field_event_zip_post_code']['id'] = 'field_event_zip_post_code';
   $handler->display->display_options['fields']['field_event_zip_post_code']['table'] = 'field_data_field_event_zip_post_code';
   $handler->display->display_options['fields']['field_event_zip_post_code']['field'] = 'field_event_zip_post_code';
-  /* Field: Content: Notes */
+  /* Field: Content: Body */
   $handler->display->display_options['fields']['body']['id'] = 'body';
   $handler->display->display_options['fields']['body']['table'] = 'field_data_body';
   $handler->display->display_options['fields']['body']['field'] = 'body';
@@ -93,18 +93,6 @@ function openproducer_events_views_default_views() {
   $handler->display->display_options['sorts']['field_event_date_value']['id'] = 'field_event_date_value';
   $handler->display->display_options['sorts']['field_event_date_value']['table'] = 'field_data_field_event_date';
   $handler->display->display_options['sorts']['field_event_date_value']['field'] = 'field_event_date_value';
-  /* Contextual filter: Event Date */
-  $handler->display->display_options['arguments']['date_argument']['id'] = 'date_argument';
-  $handler->display->display_options['arguments']['date_argument']['table'] = 'node';
-  $handler->display->display_options['arguments']['date_argument']['field'] = 'date_argument';
-  $handler->display->display_options['arguments']['date_argument']['ui_name'] = 'Event Date';
-  $handler->display->display_options['arguments']['date_argument']['default_action'] = 'default';
-  $handler->display->display_options['arguments']['date_argument']['default_argument_type'] = 'date';
-  $handler->display->display_options['arguments']['date_argument']['summary']['format'] = 'default_summary';
-  $handler->display->display_options['arguments']['date_argument']['granularity'] = 'hour';
-  $handler->display->display_options['arguments']['date_argument']['date_fields'] = array(
-    'field_data_field_event_date.field_event_date_value' => 'field_data_field_event_date.field_event_date_value',
-  );
   /* Filter criterion: Content: Published */
   $handler->display->display_options['filters']['status']['id'] = 'status';
   $handler->display->display_options['filters']['status']['table'] = 'node';
@@ -464,16 +452,19 @@ function openproducer_events_views_default_views() {
   $handler->display->display_options['pager']['options']['items_per_page'] = '3';
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'table';
+  $handler->display->display_options['style_plugin'] = 'views_bootstrap_table_plugin_style';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
   $handler->display->display_options['style_options']['columns'] = array(
     'field_event_date' => 'field_event_date',
-    'field_event_city' => 'field_event_city',
+    'field_event_date_1' => 'field_event_date_1',
     'field_event_venue' => 'field_event_venue',
     'field_venue_address' => 'field_venue_address',
-    'field_event_state' => 'field_event_city',
-    'field_event_zip_post_code' => 'field_event_city',
+    'field_event_city' => 'field_event_city',
+    'field_event_state' => 'field_event_state',
+    'field_event_zip_post_code' => 'field_event_zip_post_code',
+    'nothing' => 'nothing',
     'title' => 'title',
-    'field_event_date_1' => 'title',
     'field_links' => 'field_links',
   );
   $handler->display->display_options['style_options']['default'] = '-1';
@@ -481,58 +472,9 @@ function openproducer_events_views_default_views() {
     'field_event_date' => array(
       'sortable' => 0,
       'default_sort_order' => 'asc',
-      'align' => 'views-align-left',
-      'separator' => ', ',
-      'empty_column' => 0,
-      'responsive' => '',
-    ),
-    'field_event_city' => array(
-      'sortable' => 0,
-      'default_sort_order' => 'asc',
-      'align' => 'views-align-left',
-      'separator' => ', ',
-      'empty_column' => 0,
-      'responsive' => '',
-    ),
-    'field_event_venue' => array(
-      'sortable' => 0,
-      'default_sort_order' => 'asc',
-      'align' => 'views-align-left',
-      'separator' => '',
-      'empty_column' => 0,
-      'responsive' => 'priority-medium',
-    ),
-    'field_venue_address' => array(
-      'sortable' => 0,
-      'default_sort_order' => 'asc',
       'align' => '',
-      'separator' => ', ',
-      'empty_column' => 0,
-      'responsive' => '',
-    ),
-    'field_event_state' => array(
-      'sortable' => 0,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-      'responsive' => '',
-    ),
-    'field_event_zip_post_code' => array(
-      'sortable' => 0,
-      'default_sort_order' => 'asc',
-      'align' => '',
-      'separator' => '',
-      'empty_column' => 0,
-      'responsive' => '',
-    ),
-    'title' => array(
-      'sortable' => 0,
-      'default_sort_order' => 'asc',
-      'align' => 'views-align-left',
       'separator' => '<br>',
       'empty_column' => 0,
-      'responsive' => '',
     ),
     'field_event_date_1' => array(
       'sortable' => 0,
@@ -540,14 +482,65 @@ function openproducer_events_views_default_views() {
       'align' => '',
       'separator' => '',
       'empty_column' => 0,
-      'responsive' => '',
     ),
-    'field_links' => array(
-      'align' => 'views-align-left',
+    'field_event_venue' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
       'separator' => '',
       'empty_column' => 0,
-      'responsive' => '',
     ),
+    'field_venue_address' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_event_city' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_event_state' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_event_zip_post_code' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'nothing' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'title' => array(
+      'sortable' => 0,
+      'default_sort_order' => 'asc',
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+    'field_links' => array(
+      'align' => '',
+      'separator' => '',
+      'empty_column' => 0,
+    ),
+  );
+  $handler->display->display_options['style_options']['bootstrap_styles'] = array(
+    'striped' => 'striped',
+    'bordered' => 0,
+    'hover' => 0,
+    'condensed' => 0,
   );
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
@@ -567,10 +560,6 @@ function openproducer_events_views_default_views() {
     'multiple_from' => '',
     'multiple_to' => '',
   );
-  /* Field: Content: City */
-  $handler->display->display_options['fields']['field_event_city']['id'] = 'field_event_city';
-  $handler->display->display_options['fields']['field_event_city']['table'] = 'field_data_field_event_city';
-  $handler->display->display_options['fields']['field_event_city']['field'] = 'field_event_city';
   /* Field: Content: Venue */
   $handler->display->display_options['fields']['field_event_venue']['id'] = 'field_event_venue';
   $handler->display->display_options['fields']['field_event_venue']['table'] = 'field_data_field_event_venue';
@@ -580,35 +569,33 @@ function openproducer_events_views_default_views() {
   $handler->display->display_options['fields']['field_venue_address']['table'] = 'field_data_field_venue_address';
   $handler->display->display_options['fields']['field_venue_address']['field'] = 'field_venue_address';
   $handler->display->display_options['fields']['field_venue_address']['exclude'] = TRUE;
+  /* Field: Content: City */
+  $handler->display->display_options['fields']['field_event_city']['id'] = 'field_event_city';
+  $handler->display->display_options['fields']['field_event_city']['table'] = 'field_data_field_event_city';
+  $handler->display->display_options['fields']['field_event_city']['field'] = 'field_event_city';
+  $handler->display->display_options['fields']['field_event_city']['exclude'] = TRUE;
   /* Field: Content: State */
   $handler->display->display_options['fields']['field_event_state']['id'] = 'field_event_state';
   $handler->display->display_options['fields']['field_event_state']['table'] = 'field_data_field_event_state';
   $handler->display->display_options['fields']['field_event_state']['field'] = 'field_event_state';
+  $handler->display->display_options['fields']['field_event_state']['exclude'] = TRUE;
   /* Field: Content: ZIP/Post Code */
   $handler->display->display_options['fields']['field_event_zip_post_code']['id'] = 'field_event_zip_post_code';
   $handler->display->display_options['fields']['field_event_zip_post_code']['table'] = 'field_data_field_event_zip_post_code';
   $handler->display->display_options['fields']['field_event_zip_post_code']['field'] = 'field_event_zip_post_code';
   $handler->display->display_options['fields']['field_event_zip_post_code']['exclude'] = TRUE;
+  /* Field: Global: Custom text */
+  $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['table'] = 'views';
+  $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
+  $handler->display->display_options['fields']['nothing']['label'] = 'Location';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '[field_event_city], [field_event_state]';
   /* Field: Content: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['label'] = 'Details';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
-  /* Field: Time */
-  $handler->display->display_options['fields']['field_event_date_1']['id'] = 'field_event_date_1';
-  $handler->display->display_options['fields']['field_event_date_1']['table'] = 'field_data_field_event_date';
-  $handler->display->display_options['fields']['field_event_date_1']['field'] = 'field_event_date';
-  $handler->display->display_options['fields']['field_event_date_1']['ui_name'] = 'Time';
-  $handler->display->display_options['fields']['field_event_date_1']['label'] = '';
-  $handler->display->display_options['fields']['field_event_date_1']['element_label_colon'] = FALSE;
-  $handler->display->display_options['fields']['field_event_date_1']['settings'] = array(
-    'format_type' => 'panopoly_time',
-    'fromto' => 'both',
-    'multiple_number' => '',
-    'multiple_from' => '',
-    'multiple_to' => '',
-  );
   /* Field: Content: Links */
   $handler->display->display_options['fields']['field_links']['id'] = 'field_links';
   $handler->display->display_options['fields']['field_links']['table'] = 'field_data_field_links';
@@ -664,17 +651,15 @@ function openproducer_events_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['style_options']['row_class'] = 'clearfix';
+  $handler->display->display_options['style_options']['row_class'] = 'media clearfix';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
-  $handler->display->display_options['row_options']['inline'] = array(
-    'field_event_venue' => 'field_event_venue',
-    'field_event_city' => 'field_event_city',
-    'field_event_state' => 'field_event_state',
-  );
   $handler->display->display_options['row_options']['separator'] = ',';
   $handler->display->display_options['row_options']['hide_empty'] = TRUE;
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['empty'] = FALSE;
   /* No results behavior: Global: Text area */
@@ -686,6 +671,20 @@ function openproducer_events_views_default_views() {
   $handler->display->display_options['empty']['area']['content'] = 'Events that have already taken place will show up here.';
   $handler->display->display_options['empty']['area']['format'] = 'panopoly_wysiwyg_text';
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Field: Primary Image */
+  $handler->display->display_options['fields']['field_featured_image']['id'] = 'field_featured_image';
+  $handler->display->display_options['fields']['field_featured_image']['table'] = 'field_data_field_featured_image';
+  $handler->display->display_options['fields']['field_featured_image']['field'] = 'field_featured_image';
+  $handler->display->display_options['fields']['field_featured_image']['label'] = '';
+  $handler->display->display_options['fields']['field_featured_image']['element_type'] = 'div';
+  $handler->display->display_options['fields']['field_featured_image']['element_class'] = 'media-left';
+  $handler->display->display_options['fields']['field_featured_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_featured_image']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_featured_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_featured_image']['settings'] = array(
+    'image_style' => 'media_thumbnail',
+    'image_link' => 'content',
+  );
   /* Field: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
@@ -695,13 +694,16 @@ function openproducer_events_views_default_views() {
   $handler->display->display_options['fields']['title']['exclude'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = 'h4';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
   /* Field: Day */
   $handler->display->display_options['fields']['field_event_date']['id'] = 'field_event_date';
   $handler->display->display_options['fields']['field_event_date']['table'] = 'field_data_field_event_date';
   $handler->display->display_options['fields']['field_event_date']['field'] = 'field_event_date';
   $handler->display->display_options['fields']['field_event_date']['ui_name'] = 'Day';
   $handler->display->display_options['fields']['field_event_date']['label'] = '';
+  $handler->display->display_options['fields']['field_event_date']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_event_date']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_event_date']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_event_date']['settings'] = array(
@@ -710,12 +712,14 @@ function openproducer_events_views_default_views() {
     'multiple_number' => '',
     'multiple_from' => '',
     'multiple_to' => '',
+    'show_remaining_days' => 0,
   );
   /* Field: Content: Venue */
   $handler->display->display_options['fields']['field_event_venue']['id'] = 'field_event_venue';
   $handler->display->display_options['fields']['field_event_venue']['table'] = 'field_data_field_event_venue';
   $handler->display->display_options['fields']['field_event_venue']['field'] = 'field_event_venue';
   $handler->display->display_options['fields']['field_event_venue']['label'] = '';
+  $handler->display->display_options['fields']['field_event_venue']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_event_venue']['element_label_colon'] = FALSE;
   /* Field: Content: City */
   $handler->display->display_options['fields']['field_event_city']['id'] = 'field_event_city';
@@ -736,7 +740,16 @@ function openproducer_events_views_default_views() {
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
-  $handler->display->display_options['fields']['nothing']['alter']['text'] = '[field_event_city], [field_event_state]';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '  <div class="media-body">
+    <h4 class="media-heading">[title]</h4>
+   
+[field_event_date] <br> 
+ [field_event_city], [field_event_state]
+  </div>
+
+
+
+';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Content: Date (field_event_date) */
@@ -785,7 +798,7 @@ function openproducer_events_views_default_views() {
   $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['title'] = 'Upcoming shows';
   $handler->display->display_options['defaults']['css_class'] = FALSE;
-  $handler->display->display_options['css_class'] = 'widgets';
+  $handler->display->display_options['css_class'] = 'clearfix';
   $handler->display->display_options['defaults']['hide_admin_links'] = FALSE;
   $handler->display->display_options['defaults']['use_more'] = FALSE;
   $handler->display->display_options['use_more'] = TRUE;
@@ -796,34 +809,50 @@ function openproducer_events_views_default_views() {
   $handler->display->display_options['pager']['options']['offset'] = '0';
   $handler->display->display_options['defaults']['style_plugin'] = FALSE;
   $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['style_options']['row_class'] = 'clearfix';
+  $handler->display->display_options['style_options']['row_class'] = 'media clearfix';
+  $handler->display->display_options['style_options']['default_row_class'] = FALSE;
+  $handler->display->display_options['style_options']['row_class_special'] = FALSE;
   $handler->display->display_options['defaults']['style_options'] = FALSE;
   $handler->display->display_options['defaults']['row_plugin'] = FALSE;
   $handler->display->display_options['row_plugin'] = 'fields';
-  $handler->display->display_options['row_options']['inline'] = array(
-    'field_event_venue' => 'field_event_venue',
-    'field_event_city' => 'field_event_city',
-    'field_event_state' => 'field_event_state',
-  );
   $handler->display->display_options['row_options']['separator'] = ',';
   $handler->display->display_options['row_options']['hide_empty'] = TRUE;
+  $handler->display->display_options['row_options']['default_field_elements'] = FALSE;
   $handler->display->display_options['defaults']['row_options'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
+  /* Field: Field: Primary Image */
+  $handler->display->display_options['fields']['field_featured_image']['id'] = 'field_featured_image';
+  $handler->display->display_options['fields']['field_featured_image']['table'] = 'field_data_field_featured_image';
+  $handler->display->display_options['fields']['field_featured_image']['field'] = 'field_featured_image';
+  $handler->display->display_options['fields']['field_featured_image']['label'] = '';
+  $handler->display->display_options['fields']['field_featured_image']['element_type'] = 'div';
+  $handler->display->display_options['fields']['field_featured_image']['element_class'] = 'media-left';
+  $handler->display->display_options['fields']['field_featured_image']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_featured_image']['element_default_classes'] = FALSE;
+  $handler->display->display_options['fields']['field_featured_image']['click_sort_column'] = 'fid';
+  $handler->display->display_options['fields']['field_featured_image']['settings'] = array(
+    'image_style' => 'media_thumbnail',
+    'image_link' => 'content',
+  );
   /* Field: Title */
   $handler->display->display_options['fields']['title']['id'] = 'title';
   $handler->display->display_options['fields']['title']['table'] = 'node';
   $handler->display->display_options['fields']['title']['field'] = 'title';
   $handler->display->display_options['fields']['title']['ui_name'] = 'Title';
   $handler->display->display_options['fields']['title']['label'] = '';
+  $handler->display->display_options['fields']['title']['exclude'] = TRUE;
   $handler->display->display_options['fields']['title']['alter']['word_boundary'] = FALSE;
   $handler->display->display_options['fields']['title']['alter']['ellipsis'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_type'] = 'h4';
   $handler->display->display_options['fields']['title']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['title']['element_default_classes'] = FALSE;
   /* Field: Day */
   $handler->display->display_options['fields']['field_event_date']['id'] = 'field_event_date';
   $handler->display->display_options['fields']['field_event_date']['table'] = 'field_data_field_event_date';
   $handler->display->display_options['fields']['field_event_date']['field'] = 'field_event_date';
   $handler->display->display_options['fields']['field_event_date']['ui_name'] = 'Day';
   $handler->display->display_options['fields']['field_event_date']['label'] = '';
+  $handler->display->display_options['fields']['field_event_date']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_event_date']['element_label_colon'] = FALSE;
   $handler->display->display_options['fields']['field_event_date']['hide_empty'] = TRUE;
   $handler->display->display_options['fields']['field_event_date']['settings'] = array(
@@ -832,12 +861,14 @@ function openproducer_events_views_default_views() {
     'multiple_number' => '',
     'multiple_from' => '',
     'multiple_to' => '',
+    'show_remaining_days' => 0,
   );
   /* Field: Content: Venue */
   $handler->display->display_options['fields']['field_event_venue']['id'] = 'field_event_venue';
   $handler->display->display_options['fields']['field_event_venue']['table'] = 'field_data_field_event_venue';
   $handler->display->display_options['fields']['field_event_venue']['field'] = 'field_event_venue';
   $handler->display->display_options['fields']['field_event_venue']['label'] = '';
+  $handler->display->display_options['fields']['field_event_venue']['exclude'] = TRUE;
   $handler->display->display_options['fields']['field_event_venue']['element_label_colon'] = FALSE;
   /* Field: Content: City */
   $handler->display->display_options['fields']['field_event_city']['id'] = 'field_event_city';
@@ -858,7 +889,12 @@ function openproducer_events_views_default_views() {
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
   $handler->display->display_options['fields']['nothing']['field'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['label'] = '';
-  $handler->display->display_options['fields']['nothing']['alter']['text'] = '[field_event_city], [field_event_state] ';
+  $handler->display->display_options['fields']['nothing']['alter']['text'] = '  <div class="media-body">
+    <h4 class="media-heading">[title]</h4>
+   
+[field_event_date] <br> 
+ [field_event_city], [field_event_state]
+  </div>';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
   $handler->display->display_options['defaults']['sorts'] = FALSE;
   /* Sort criterion: Content: Date (field_event_date) */
@@ -904,22 +940,7 @@ function openproducer_events_views_default_views() {
 
   /* Display: Venue details */
   $handler = $view->new_display('panel_pane', 'Venue details', 'panel_pane_4');
-  $handler->display->display_options['defaults']['style_plugin'] = FALSE;
-  $handler->display->display_options['style_plugin'] = 'default';
-  $handler->display->display_options['style_options']['row_class'] = 'clearfix';
-  $handler->display->display_options['defaults']['style_options'] = FALSE;
-  $handler->display->display_options['defaults']['row_plugin'] = FALSE;
-  $handler->display->display_options['row_plugin'] = 'fields';
-  $handler->display->display_options['row_options']['inline'] = array(
-    'field_event_city' => 'field_event_city',
-    'field_event_state' => 'field_event_state',
-    'field_event_zip_post_code' => 'field_event_zip_post_code',
-  );
-  $handler->display->display_options['row_options']['separator'] = ',';
-  $handler->display->display_options['row_options']['hide_empty'] = TRUE;
-  $handler->display->display_options['defaults']['row_options'] = FALSE;
-  $handler->display->display_options['defaults']['empty'] = FALSE;
-  $handler->display->display_options['defaults']['relationships'] = FALSE;
+  $handler->display->display_options['defaults']['title'] = FALSE;
   $handler->display->display_options['defaults']['fields'] = FALSE;
   /* Field: Content: Venue */
   $handler->display->display_options['fields']['field_event_venue']['id'] = 'field_event_venue';
@@ -937,23 +958,17 @@ function openproducer_events_views_default_views() {
   $handler->display->display_options['fields']['field_event_city']['id'] = 'field_event_city';
   $handler->display->display_options['fields']['field_event_city']['table'] = 'field_data_field_event_city';
   $handler->display->display_options['fields']['field_event_city']['field'] = 'field_event_city';
-  $handler->display->display_options['fields']['field_event_city']['label'] = '';
   $handler->display->display_options['fields']['field_event_city']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_event_city']['element_label_colon'] = FALSE;
   /* Field: Content: State */
   $handler->display->display_options['fields']['field_event_state']['id'] = 'field_event_state';
   $handler->display->display_options['fields']['field_event_state']['table'] = 'field_data_field_event_state';
   $handler->display->display_options['fields']['field_event_state']['field'] = 'field_event_state';
-  $handler->display->display_options['fields']['field_event_state']['label'] = '';
   $handler->display->display_options['fields']['field_event_state']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_event_state']['element_label_colon'] = FALSE;
   /* Field: Content: ZIP/Post Code */
   $handler->display->display_options['fields']['field_event_zip_post_code']['id'] = 'field_event_zip_post_code';
   $handler->display->display_options['fields']['field_event_zip_post_code']['table'] = 'field_data_field_event_zip_post_code';
   $handler->display->display_options['fields']['field_event_zip_post_code']['field'] = 'field_event_zip_post_code';
-  $handler->display->display_options['fields']['field_event_zip_post_code']['label'] = '';
   $handler->display->display_options['fields']['field_event_zip_post_code']['exclude'] = TRUE;
-  $handler->display->display_options['fields']['field_event_zip_post_code']['element_label_colon'] = FALSE;
   /* Field: Global: Custom text */
   $handler->display->display_options['fields']['nothing']['id'] = 'nothing';
   $handler->display->display_options['fields']['nothing']['table'] = 'views';
@@ -961,6 +976,26 @@ function openproducer_events_views_default_views() {
   $handler->display->display_options['fields']['nothing']['label'] = '';
   $handler->display->display_options['fields']['nothing']['alter']['text'] = '[field_event_city], [field_event_state]  [field_event_zip_post_code]';
   $handler->display->display_options['fields']['nothing']['element_label_colon'] = FALSE;
+  /* Field: Content: Map Address */
+  $handler->display->display_options['fields']['field_event_address']['id'] = 'field_event_address';
+  $handler->display->display_options['fields']['field_event_address']['table'] = 'field_data_field_event_address';
+  $handler->display->display_options['fields']['field_event_address']['field'] = 'field_event_address';
+  $handler->display->display_options['fields']['field_event_address']['label'] = '';
+  $handler->display->display_options['fields']['field_event_address']['element_label_colon'] = FALSE;
+  $handler->display->display_options['fields']['field_event_address']['type'] = 'simple_gmap';
+  $handler->display->display_options['fields']['field_event_address']['settings'] = array(
+    'include_map' => 1,
+    'include_static_map' => 0,
+    'iframe_width' => '200',
+    'iframe_height' => '200',
+    'include_link' => 0,
+    'link_text' => 'View larger map',
+    'zoom_level' => '14',
+    'information_bubble' => 1,
+    'include_text' => 0,
+    'map_type' => 'm',
+    'langcode' => 'en',
+  );
   $handler->display->display_options['defaults']['arguments'] = FALSE;
   /* Contextual filter: Content: Nid */
   $handler->display->display_options['arguments']['nid']['id'] = 'nid';
