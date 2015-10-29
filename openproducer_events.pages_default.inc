@@ -54,11 +54,27 @@ function openproducer_events_default_page_manager_pages() {
       'default' => NULL,
       'header' => NULL,
       'sidebar' => NULL,
-      'contentmain' => NULL,
+      'contentmain' => array(
+        'region_title' => '',
+        'hide_classes' => array(
+          'hidden-xs' => 0,
+          'hidden-sm' => 0,
+          'hidden-md' => 0,
+          'hidden-lg' => 0,
+        ),
+        'additional_classes' => array(
+          'pull-left' => 0,
+          'pull-right' => 0,
+          'clearfix' => 0,
+        ),
+      ),
+    ),
+    'contentmain' => array(
+      'style' => 'bootstrap_styles:well',
     ),
   );
   $display->cache = array();
-  $display->title = 'Events';
+  $display->title = 'Shows';
   $display->uuid = 'b17472e1-c860-4aec-a51c-31316709c674';
   $display->content = array();
   $display->panels = array();
@@ -88,10 +104,12 @@ function openproducer_events_default_page_manager_pages() {
     'view_settings' => 'fields',
     'header_type' => 'none',
     'view_mode' => 'teaser',
-    'widget_title' => '',
+    'widget_title' => 'Shows',
   );
   $pane->cache = array();
-  $pane->style = array();
+  $pane->style = array(
+    'settings' => NULL,
+  );
   $pane->css = array();
   $pane->extras = array();
   $pane->position = 0;
@@ -200,8 +218,8 @@ function openproducer_events_default_page_manager_pages() {
   $pane->uuid = 'f83d6cf2-af88-4456-a6fa-ed418a36c4b3';
   $display->content['new-f83d6cf2-af88-4456-a6fa-ed418a36c4b3'] = $pane;
   $display->panels['sidebar'][1] = 'new-f83d6cf2-af88-4456-a6fa-ed418a36c4b3';
-  $display->hide_title = PANELS_TITLE_FIXED;
-  $display->title_pane = '0';
+  $display->hide_title = PANELS_TITLE_PANE;
+  $display->title_pane = 'new-81eca58b-bbe9-4f15-a4bd-1a874bd970e0';
   $handler->conf['display'] = $display;
   $page->default_handlers[$handler->name] = $handler;
   $pages['events'] = $page;
